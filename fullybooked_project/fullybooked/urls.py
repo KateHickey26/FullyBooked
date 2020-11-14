@@ -8,4 +8,6 @@ app_name = 'fullybooked'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('add_book/', views.add_book, name='add_book'),
+    path('review_book/', views.review_book, name='review_book'),
 ]

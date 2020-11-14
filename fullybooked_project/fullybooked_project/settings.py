@@ -2,6 +2,7 @@
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # This variable stores the path to the directory that the settings.py module is contained within.
 # This is done using the "__file__" attribute, which is set to the path of the settings module.
@@ -115,3 +116,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# added for use with .env file
+KEY = os.environ.get('KEY', 'default_value')

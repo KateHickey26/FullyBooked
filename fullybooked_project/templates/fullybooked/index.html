@@ -6,6 +6,21 @@
     <link rel="stylesheet" type="text/css" href="static/css/bookshelf.css">
 </head>
 
+    <script>
+            $(function() {
+
+            var books = [];
+
+            $.getJSON('books.json', function(data) {
+                $.each(data.books, function(t, a, r) {
+                    var tblrow = "<tr>" + "<td>" + t.title + "</td>" + "<td>" + a.author + "<td/>" + "<td>" + r.rating + "</td>" + "</tr>"
+                    $(tblrow).appendTo("#book tbody");
+            });
+            });
+           });
+    </script>
+
+
 <body>
     <h1>Testing...</h1>
     <div>
@@ -16,7 +31,11 @@
     </div>
 
     <div class="bookshelf">
+        <div class="book" id="book">
+            <thead>
 
+            </thead>
+        </div>
 
 <!--         json data with book info. Code here to loop through it?
             {% if books

@@ -21,7 +21,7 @@ from fullybooked import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('fullybooked/', include('fullybooked.urls')),
-    # The above maps any urls starting with fullbooked/ to be handled by the app
+    # The above maps any urls starting with fullybooked/ to be handled by the app
     # This makes the code more modular and reusable
     path('admin/', admin.site.urls),
 ]

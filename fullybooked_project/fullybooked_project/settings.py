@@ -1,12 +1,19 @@
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# This variable stores the path to the directory that the settings.py module is contained within.
+# This is done using the "__file__" attribute, which is set to the path of the settings module.
+# Using this as a parameter for os.path.adspath() guarantees the absolute path to the settings.py module.
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# the new variable below is created to reference the "templates" directory.
+# the os.path.join() function concatenates the value of BASE_DIR with the string "templates".
+# This will give us the correct pathway for the "templates" directory - "fullybooked_project/templates"
+TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'slpfp_@hb5aa84a4k-h1u$q!!e49er0yeqy6y*iu19w7v2k!sd'
@@ -44,7 +51,7 @@ ROOT_URLCONF = 'fullybooked_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,7 +73,7 @@ WSGI_APPLICATION = 'fullybooked_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 

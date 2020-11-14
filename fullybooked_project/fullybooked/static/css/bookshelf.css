@@ -1,8 +1,3 @@
-$brown: #A87328;
-$darkblue: #0C347D;
-$umber: #54290C;
-$springer: #EDED80;
-
 html {
   height: 100%;
 }
@@ -15,11 +10,9 @@ body {
   width: 80%;
   height: 100%;
   margin: 0 auto;
-  border: 10px $brown solid;
+  border: 10px #A87328 solid;
   overflow: hidden;
-  background-image: linear-gradient(darken($brown, 32%), darken($brown, 30%) 220px,
-    lighten($brown, 4%) 220px, lighten($brown, 4%) 222px,
-    $brown 222px, $brown 228px, darken($brown, 4%) 228px, darken($brown, 4%) 230px);
+  background-image: linear-gradient(#241909, #2c1e0b 220px, #b87e2c 220px, #b87e2c 222px, #A87328 222px, #A87328 228px, #986824 228px, #986824 230px);
   background-size: 10px 230px;
   box-shadow: 0px 1000px 0px 400px #7A7668;
 }
@@ -42,7 +35,7 @@ body {
 }
 
 .book-tilted > .book {
-  transform: translateY(-3px) translateX(15px) rotate(9deg) ;
+  transform: translateY(-3px) translateX(15px) rotate(9deg);
 }
 
 .book:hover {
@@ -51,26 +44,26 @@ body {
 
 .book-green {
   background-color: darkgreen;
-  border-left: 2px solid lighten(darkgreen, 4%);
-  border-right: 2px solid darken(darkgreen, 4%);
+  border-left: 2px solid #007800;
+  border-right: 2px solid #005000;
 }
 
 .book-blue {
-  background-color: $darkblue;
-  border-left: 2px solid lighten($darkblue, 4%);
-  border-right: 2px solid darken($darkblue, 4%);
+  background-color: #0C347D;
+  border-left: 2px solid #0e3c90;
+  border-right: 2px solid #0a2c6a;
 }
 
 .book-umber {
-  background-color: $umber;
-  border-left: 2px solid lighten($umber, 4%);
-  border-right: 2px solid darken($umber, 4%);
+  background-color: #54290C;
+  border-left: 2px solid #66320f;
+  border-right: 2px solid #422009;
 }
 
 .book-springer {
-  background-color: $springer;
-  border-left: 2px solid lighten($springer, 4%);
-  border-right: 2px solid darken($springer, 4%);
+  background-color: #EDED80;
+  border-left: 2px solid #f0f092;
+  border-right: 2px solid #eaea6e;
   color: black;
 }
 
@@ -89,3 +82,5 @@ body {
   transform: rotate(0.25turn) translateY(-15px) translateX(-20px);
   width: 150px;
 }
+
+/*# sourceMappingURL=bookshelf.css.map */

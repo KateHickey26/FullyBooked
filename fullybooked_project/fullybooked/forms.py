@@ -12,6 +12,7 @@ class NewBookForm(forms.ModelForm):
         fields = ('title', 'author')
 
 
+# for use if the New Book form was seperate, but for now, adding a book to the shelf assumes tou have read it
 class ReviewBookForm(forms.ModelForm):
     rating = forms.IntegerField(initial=0)
 
@@ -20,6 +21,7 @@ class ReviewBookForm(forms.ModelForm):
         fields = ('rating',)
 
 
+# for use if logging in
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=50)
     password = forms.CharField(widget=forms.PasswordInput())

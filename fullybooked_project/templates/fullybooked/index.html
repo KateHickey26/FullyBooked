@@ -29,7 +29,7 @@
                             dataArray[entry].forEach(function(book) {
                               var newDiv = document.createElement('div');
                               // give value
-                              newDiv.innerHTML = ("<h2>" + book.attributes.title + " " + "</h2>" + "<h3>" + "Rating /5: " + book.attributes.rating + "</h3>");
+                              newDiv.innerHTML = ("<h2>" + book.attributes.title + " " + "</h2>" + "<h3>" + "Rating: " + book.attributes.rating + " /5" + "</h3>");
                               newDiv.id = "book" + book.id;
 
                               if(book.id %4 == 0){
@@ -48,8 +48,6 @@
                           })
                       })
                     })
-
-
 
     </script>
 
@@ -70,6 +68,4 @@
     <div class="bookshelf" id="bookshelf">
 
 </body>
-
-
 </html>

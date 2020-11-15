@@ -2,17 +2,17 @@
 	"books": [{
 		"Title": "Homegoing",
 		"Author": "Yaa Gyasi",
-		"Rating": 4
+		"Rating": "4"
 		},
 		{
 		"Title": "Beloved",
 		"Author": "Toni Morrison",
-		"Rating": 5
+		"Rating": "5"
 		},
 		{
 		"Title": "The Hunting Party",
 		"Author": "Lucy Foley",
-		"Rating": 3
+		"Rating": "3"
 		}
 	]
 }

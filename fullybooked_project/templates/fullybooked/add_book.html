@@ -8,7 +8,7 @@
         <script src = "http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-<!--        <script>-->
+        <script>
 
       //  $(document).ready(function() {
       //    $.getJSON("http://localhost:8000/books", function(dataArray) {
@@ -16,7 +16,7 @@
       //    })
       //  })
 
-<!--        </script>-->
+        </script>
 
     </head>
         <body>
@@ -24,6 +24,7 @@
             <div class="text">
                 <form id = "newbook_form" method = "post" action = "{% url 'fullybooked:add_book' %}" enctype="multipart/form-data">
                     {{ form.as_p }}
+                    {% csrf_token %}
                     <input type = "submit" name = "submit" value = "Add Book" />
                 </form>
             </div>

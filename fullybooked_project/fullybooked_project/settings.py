@@ -20,9 +20,11 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = 'slpfp_@hb5aa84a4k-h1u$q!!e49er0yeqy6y*iu19w7v2k!sd'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["katehickey26.pythonanywhere.com",
+                 "127.0.0.1:8000",
+                 "127.0.0.1:8000/books/"]
 
 
 # Application definition

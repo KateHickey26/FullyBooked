@@ -63,6 +63,8 @@
     </div>
     <div class="text">
         <a href="{% url 'fullybooked:add_book' %}">Add a new book to your shelf</a></br>
+                            {% csrf_token %}
+
     </div>
 
     <div class="bookshelf" id="bookshelf">

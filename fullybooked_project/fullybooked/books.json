@@ -1,5 +1,4 @@
-{
-	"books": [{
+[		{
 		"Title": "Homegoing",
 		"Author": "Yaa Gyasi",
 		"Rating": "4"
@@ -13,6 +12,4 @@
 		"Title": "The Hunting Party",
 		"Author": "Lucy Foley",
 		"Rating": "3"
-		}
-	]
-}
+		}]

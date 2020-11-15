@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from fullybooked.models import Book
 from fullybooked.forms import NewBookForm, ReviewBookForm
+from fullybooked.serializers import BookSerializer
+from rest_framework import viewsets
 
 
 # Create your views here.
@@ -49,3 +51,8 @@ def review_book(request):
             print(form.errors)
 
     return render(request, 'fullybooked/review_book.html', {'form': form})
+
+
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = Book.objects.all()
+    serializer_class = BookSerializer

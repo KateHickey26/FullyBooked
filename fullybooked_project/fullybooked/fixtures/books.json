@@ -1,0 +1,26 @@
+[		{
+		"pk": "1",
+        "model": "fullybooked.book",
+        "fields": {
+            "title": "Homegoing",
+			"author": "Yaa Gyasi",
+			"rating": "5"
+        }
+		},
+		{"pk": "2",
+        "model": "fullybooked.book",
+        "fields": {
+            "title": "Beloved",
+			"author": "Toni Morrison",
+			"rating": "5"
+        }
+		},
+		{"pk": "3",
+        "model": "fullybooked.book",
+        "fields": {
+			"title": "The Hunting Party",
+			"author": "Lucy Foley",
+			"rating": "3"
+		}
+		}
+]

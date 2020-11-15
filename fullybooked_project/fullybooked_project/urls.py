@@ -17,9 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import include
 from fullybooked import views
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'books', views.BookViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('', include(router.urls)),
     path('fullybooked/', include('fullybooked.urls')),
     # The above maps any urls starting with fullybooked/ to be handled by the app
     # This makes the code more modular and reusable

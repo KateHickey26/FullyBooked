@@ -4,33 +4,61 @@
 <head>
     <title>Fully Booked</title>
     <link rel="stylesheet" type="text/css" href="static/css/bookshelf.css">
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
 
-         //  $.getJSON('books.json', function(data) {
-         //       alert(data);
-         //  });
-
            // creating a variable of the json data
-           var jsonObject = {}
-           var request = new XMLHttpRequest();
-           request.open("GET", "books.json", false);
-           request.send(null)
-           if (request.status == 200){
-            jsonObject = JSON.parse(request.responseText);
-           }
+          // $.getJSON('books.json', function(data) {
+          //      $(data).each(function(key, value){
+          //          console.log(value);
+          //      });
+          // });
+
+           // var jsonObject = {}
+           // var request = new XMLHttpRequest();
+           // request.open("GET", "fullybooked_project/fullybooked/books.json", false);
+           // request.send(null)
+           // if (request.status == 200){
+           //  jsonObject = JSON.parse(request.responseText);
+           // }
+
+
+           $(document).ready(function() {
+
+             const jsonObject= [];
+
+             $.getJSON("books.json", function(data) {
+               data.forEach(function(item, i) {
+                 jsonObject.push(item.title);
+                 console.log(item.title);
+               })
+             })
+
+             var parentDiv = document.getElementById('bookshelf');
+
+             for(var i = 0; i< jsonObject.length; i++){
+                 var newDiv = document.createElement('div');
+                 // give value
+                 newDiv.id = "book" + i;
+                 newDiv.class = "book";
+                 parentDiv.appendChild(newDiv);
+             };
+
+           })
 
            // creating a new div with each element in the json array
-           var parentDiv = document.getElementById('bookshelf');
-           jsonObject.points.forEach(function(item, index){
-               var newDiv = document.createElement('div');
-               newDiv.id = "book" + index;
-               newDiv.class = "book";
-               parentDiv.appendChild(newDiv);
-               });
+           // var parentDiv = document.getElementById('bookshelf');
+           //
+           // for(var i = 0; i< jsonObject.length; i++){
+           //     var newDiv = document.createElement('div');
+           //     newDiv.id = "book" + index;
+           //     newDiv.class = "book";
+           //     parentDiv.appendChild(newDiv);
+           // };
 
 
-         //   $.getJSON('ajax/test.json', function(data) {
+         //   $.getJSON('books.json', function(data) {
          //       $.each(data, function(key, value) {
          //       $("#bookshelf").append("<div>" + function(key, value) + "</div>");
          //       });

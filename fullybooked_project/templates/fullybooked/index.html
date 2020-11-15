@@ -29,20 +29,40 @@
              const jsonArray = [];
 
              $.getJSON("http://localhost:8000/books", function(dataArray) {
-               console.log(dataArray);
+               $(dataArray).each(function(key, value){
+                         console.log(value);
+                         jsonArray.push(dataArray);
+
+                         // var jsonObjects = {}
+                         // var request = new XMLHttpRequest();
+                         //  request.open("GET", "http://localhost:8000/books", false);
+                         //  request.send(null)
+                         //  if (request.status == 200){
+                         //   jsonObjects = JSON.parse(request.responseText);
+                         //   console.log(jsonObjects)
+                         //   var properties = request.properties;
+                         //   alert(properties);
+                         //  }
+                        //  console.log(jsonObjects.attributes);
+
+                          Object.keys(dataArray).forEach(function(entry){
+                            console.log(dataArray[entry]);
+                            console.log(dataArray[entry][2]);
+                          })
+
                //var jsonParsed = JSON.parse(data);
 
-               Object.keys(dataArray).forEach(function(item) {
-                 console.log(item);
-                 Object.keys(item).forEach(function(entry){
-                   console.log(entry);
-
-                 })
-               })
-               jsonArray.push(dataArray);
-               console.log(jsonArray);
-             })
-
+               // Object.keys(dataArray).forEach(function(item) {
+               //   console.log(item);
+               //   Object.keys(item).forEach(function(entry){
+               //     console.log(entry);
+               //
+                  })
+                })
+               // jsonArray.push(dataArray);
+               // console.log(jsonArray);
+             //})
+        //
              var parentDiv = document.getElementById('bookshelf');
 
              for(var i = 0; i< jsonArray.length; i++){
@@ -54,7 +74,8 @@
                  parentDiv.appendChild(newDiv);
              };
 
-           })
+        //   })
+         })
 
            // creating a new div with each element in the json array
            // var parentDiv = document.getElementById('bookshelf');

@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="static/css/bookshelf.css">
     <script src = "http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+
     <script>
 
            // creating a variable of the json data
@@ -23,15 +24,15 @@
            //  jsonObject = JSON.parse(request.responseText);
            // }
 
-
            $(document).ready(function() {
 
-             const jsonArray = [];
+          //   const jsonArray = [];
+          //   var parentDiv = document.getElementById('bookshelf');
 
              $.getJSON("http://localhost:8000/books", function(dataArray) {
-               $(dataArray).each(function(key, value){
-                         console.log(value);
-                         jsonArray.push(dataArray);
+            //   $(dataArray).each(function(key, value){
+            //             console.log(value);
+                    //     jsonArray.push(dataArray);
 
                          // var jsonObjects = {}
                          // var request = new XMLHttpRequest();
@@ -43,11 +44,21 @@
                          //   var properties = request.properties;
                          //   alert(properties);
                          //  }
-                        //  console.log(jsonObjects.attributes);
+                         //  console.log(jsonObjects.attributes);
 
                           Object.keys(dataArray).forEach(function(entry){
                             console.log(dataArray[entry]);
                             console.log(dataArray[entry][2]);
+                            console.log(dataArray[entry][2].attributes.title);
+
+                            var parentDiv = document.getElementById('bookshelf');
+                            var newDiv = document.createElement('div');
+                            // give value
+                            newDiv.innerHTML = ("BOOK");
+                            newDiv.id = "book";
+                            newDiv.class = "book";
+                            parentDiv.appendChild(newDiv);
+
                           })
 
                //var jsonParsed = JSON.parse(data);
@@ -57,24 +68,24 @@
                //   Object.keys(item).forEach(function(entry){
                //     console.log(entry);
                //
-                  })
-                })
+                //  })
+                //})
                // jsonArray.push(dataArray);
                // console.log(jsonArray);
              //})
         //
-             var parentDiv = document.getElementById('bookshelf');
+            //  var parentDiv = document.getElementById('bookshelf');
+            //
+            //  for(var i = 0; i< jsonArray.length; i++){
+            // //    console.log(jsonArray);
+            //      var newDiv = document.createElement('div');
+            //      // give value
+            //      newDiv.id = "book" + i;
+            //      newDiv.class = "book";
+            //      parentDiv.appendChild(newDiv);
+            //  };
 
-             for(var i = 0; i< jsonArray.length; i++){
-            //    console.log(jsonArray);
-                 var newDiv = document.createElement('div');
-                 // give value
-                 newDiv.id = "book" + i;
-                 newDiv.class = "book";
-                 parentDiv.appendChild(newDiv);
-             };
-
-        //   })
+           })
          })
 
            // creating a new div with each element in the json array
@@ -121,7 +132,7 @@
         <a href="{% url 'fullybooked:add_book' %}">Add a new book to your shelf</a></br>
     </div>
 
-    <div class="bookshelf">
+    <div class="bookshelf" id="bookshelf">
         <div class="book" id="book">
         </div>
 
@@ -138,5 +149,6 @@
     </div>
 
 </body>
+
 
 </html>

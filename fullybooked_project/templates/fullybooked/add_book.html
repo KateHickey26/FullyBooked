@@ -2,11 +2,14 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+
         <title>New Book</title>
+                <link rel="stylesheet" type="text/css" href="static/css/bookshelf.css">
+
     </head>
         <body>
-            <h1> Add a new book to your Fully Booked bookshelf</h1>
-            <div>
+            <h1> Add a new book to your Fully Booked bookshelf!</h1>
+            <div class="text">
                 <form id = "newbook_form" method = "post" action = "{% url 'fullybooked:add_book' %}" enctype="multipart/form-data">
                     {{ form.as_p }}
 

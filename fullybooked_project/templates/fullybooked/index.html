@@ -2,118 +2,53 @@
 <html lang="en">
 
 <head>
-    <title>Fully Booked</title>
+    <div class="header">
+        <title>Fully Booked</title>
+    </div>
     <link rel="stylesheet" type="text/css" href="static/css/bookshelf.css">
     <script src = "http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
     <script>
 
-           // creating a variable of the json data
-          // $.getJSON('books.json', function(data) {
-          //      $(data).each(function(key, value){
-          //          console.log(value);
-          //      });
-          // });
-
-           // var jsonObject = {}
-           // var request = new XMLHttpRequest();
-           // request.open("GET", "fullybooked_project/fullybooked/books.json", false);
-           // request.send(null)
-           // if (request.status == 200){
-           //  jsonObject = JSON.parse(request.responseText);
-           // }
-
            $(document).ready(function() {
-
-          //   const jsonArray = [];
-          //   var parentDiv = document.getElementById('bookshelf');
-
              $.getJSON("http://localhost:8000/books", function(dataArray) {
             //   $(dataArray).each(function(key, value){
             //             console.log(value);
                     //     jsonArray.push(dataArray);
 
-                         // var jsonObjects = {}
-                         // var request = new XMLHttpRequest();
-                         //  request.open("GET", "http://localhost:8000/books", false);
-                         //  request.send(null)
-                         //  if (request.status == 200){
-                         //   jsonObjects = JSON.parse(request.responseText);
-                         //   console.log(jsonObjects)
-                         //   var properties = request.properties;
-                         //   alert(properties);
-                         //  }
-                         //  console.log(jsonObjects.attributes);
+
+                          const divArray = [];
+                          var parentDiv = document.getElementById('bookshelf');
 
                           Object.keys(dataArray).forEach(function(entry){
                             console.log(dataArray[entry]);
                             console.log(dataArray[entry][2]);
                             console.log(dataArray[entry][2].attributes.title);
 
-                            var parentDiv = document.getElementById('bookshelf');
-                            var newDiv = document.createElement('div');
-                            // give value
-                            newDiv.innerHTML = ("BOOK");
-                            newDiv.id = "book";
-                            newDiv.class = "book";
-                            parentDiv.appendChild(newDiv);
+                            dataArray[entry].forEach(function(book) {
+                              var newDiv = document.createElement('div');
+                              // give value
+                              newDiv.innerHTML = ("<h2>" + book.attributes.title + " " + "</h2>" + "<h3>" + "Rating /5: " + book.attributes.rating + "</h3>");
+                              newDiv.id = "book" + book.id;
 
+                              if(book.id %4 == 0){
+                                newDiv.classList.add("book", "book-yellow");
+                              }else if(book.id %3 == 0){
+                                  newDiv.classList.add("book", "book-blue");
+                                }else{
+                                newDiv.classList.add("book", "book-green");
+                              }
+                              divArray.push(newDiv);
+                            })
                           })
 
-               //var jsonParsed = JSON.parse(data);
+                          divArray.forEach(function(index) {
+                            parentDiv.appendChild(index);
+                          })
+                      })
+                    })
 
-               // Object.keys(dataArray).forEach(function(item) {
-               //   console.log(item);
-               //   Object.keys(item).forEach(function(entry){
-               //     console.log(entry);
-               //
-                //  })
-                //})
-               // jsonArray.push(dataArray);
-               // console.log(jsonArray);
-             //})
-        //
-            //  var parentDiv = document.getElementById('bookshelf');
-            //
-            //  for(var i = 0; i< jsonArray.length; i++){
-            // //    console.log(jsonArray);
-            //      var newDiv = document.createElement('div');
-            //      // give value
-            //      newDiv.id = "book" + i;
-            //      newDiv.class = "book";
-            //      parentDiv.appendChild(newDiv);
-            //  };
-
-           })
-         })
-
-           // creating a new div with each element in the json array
-           // var parentDiv = document.getElementById('bookshelf');
-           //
-           // for(var i = 0; i< jsonObject.length; i++){
-           //     var newDiv = document.createElement('div');
-           //     newDiv.id = "book" + index;
-           //     newDiv.class = "book";
-           //     parentDiv.appendChild(newDiv);
-           // };
-
-
-         //   $.getJSON('books.json', function(data) {
-         //       $.each(data, function(key, value) {
-         //       $("#bookshelf").append("<div>" + function(key, value) + "</div>");
-         //       });
-         //   });
-
-         //  function load() {
-         //       var booksJSON =
-         //       var books = JSON.parse(booksJSON);
-         //       alert(books.length);
-         //       var div = document.getElementById('book');
-         //       for(var i=0; i< books.length; i++){
-         //           div.innerHTML = div.innerHTML + books[i].title;
-         //       };
-         //   };
 
 
     </script>
@@ -125,28 +60,14 @@
 
 <body>
     <h1>Fully Booked</h1>
-    <div>
+    <div class="text">
         Your bookshelf...</br>
     </div>
-    <div>
+    <div class="text">
         <a href="{% url 'fullybooked:add_book' %}">Add a new book to your shelf</a></br>
     </div>
 
     <div class="bookshelf" id="bookshelf">
-        <div class="book" id="book">
-        </div>
-
-<!--         json data with book info. Code here to loop through it?
-            {% if books
-                <ul>
-            {% for book in books
-                {{ book.title }}
-            {% endfor
-        </ul>
-        {% else
-            There are no books entered yet
-        {% endif -->
-    </div>
 
 </body>
 

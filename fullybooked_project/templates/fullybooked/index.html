@@ -26,18 +26,27 @@
 
            $(document).ready(function() {
 
-             const jsonObject= [];
+             const jsonArray = [];
 
-             $.getJSON("books.json", function(data) {
-               data.forEach(function(item, i) {
-                 jsonObject.push(item.title);
-                 console.log(item.title);
+             $.getJSON("http://localhost:8000/books", function(dataArray) {
+               console.log(dataArray);
+               //var jsonParsed = JSON.parse(data);
+
+               Object.keys(dataArray).forEach(function(item) {
+                 console.log(item);
+                 Object.keys(item).forEach(function(entry){
+                   console.log(entry);
+
+                 })
                })
+               jsonArray.push(dataArray);
+               console.log(jsonArray);
              })
 
              var parentDiv = document.getElementById('bookshelf');
 
-             for(var i = 0; i< jsonObject.length; i++){
+             for(var i = 0; i< jsonArray.length; i++){
+            //    console.log(jsonArray);
                  var newDiv = document.createElement('div');
                  // give value
                  newDiv.id = "book" + i;
